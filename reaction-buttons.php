@@ -1,4 +1,3 @@
-<h3>Your Reaction</h3>
 <?php
 				$reactions = get_terms( 'reaction', array( 'hide_empty' => false ) );
 				foreach( $reactions as $reaction ) {

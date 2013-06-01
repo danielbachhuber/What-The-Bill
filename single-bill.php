@@ -47,6 +47,7 @@
 						<p>Help us out by doing some research!</p>
 						<?php endif; ?>
 
+						<h3>Your Reaction</h3>
 						<?php get_template_part( 'reaction-buttons' ); ?>
 					</div><!-- .entry-content -->
 					<?php endif; ?>

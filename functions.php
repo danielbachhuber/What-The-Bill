@@ -23,6 +23,7 @@ add_action( 'pre_get_posts', function( $query ) {
 		return;
 
 	$query->set( 'post_type', 'bill' );
+	$query->set( 'orderby', 'rand' );
 
 });
 
@@ -53,6 +54,9 @@ add_action( 'wp_head', function() {
 .single-bill .site-content article {
 	border-bottom:none;
 }
+#secondary, .entry-meta, .comments-link {
+	display: none;
+}
 </style>
 <?php
 });
@@ -66,6 +70,21 @@ add_action( 'admin_head', function() {
 	}
 </style>
 <?php
+});
+
+add_filter( 'the_content', function( $content ){
+
+	if ( ! is_home() )
+		return $content;
+
+	ob_start(); ?>
+	<h2 class="bill-summary"><?php echo get_post_meta( get_the_ID(), 'summary', true ); ?></h2>
+
+	<p><a href="<?php echo the_permalink(); ?>">Learn More</a></p>
+
+	<?php get_template_part( 'reaction-buttons' ); ?>
+
+	<?php return $content . ob_get_clean();	
 });
 
 add_action( 'wp_head', function() {
