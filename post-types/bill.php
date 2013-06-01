@@ -65,7 +65,8 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 		'group' => 'bill-basic',
 		'field_type' => 'textarea',
 		'label' => 'Summary',
-		'display_column' => true
+		'display_column' => true,
+		'readonly' => true
 	) );
 	x_add_metadata_field( 'id', 'bill', array(
 		'group' => 'bill-basic',
