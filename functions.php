@@ -3,6 +3,9 @@
 if ( defined( 'WP_CLI' ) && WP_CLI )
 	require_once dirname( __FILE__ ) . '/inc/class-what-the-bill-cli.php';
 
+global $content_width;
+$content_width = 600;
+
 require_once dirname( __FILE__ ) . '/plugins/custom-metadata/custom_metadata.php'; 
 
 require_once dirname( __FILE__ ) . '/post-types/bill.php';
@@ -25,6 +28,33 @@ add_action( 'pre_get_posts', function( $query ) {
 
 add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_script( 'jquery' );
+});
+
+add_action( 'wp_head', function() {
+?>
+<style>
+#page {
+	width: 600px;
+}
+.site-content {
+	float:none;
+	width: 100%;
+}
+.edit-link {
+	display: none;
+}
+.single-bill h2.bill-summary {
+	margin-top: 10px;
+	line-height: 1.3em;
+}
+.single-bill .entry-content h3 {
+	margin-bottom: 5px;
+}
+.single-bill .site-content article {
+	border-bottom:none;
+}
+</style>
+<?php
 });
 
 add_action( 'admin_head', function() {
