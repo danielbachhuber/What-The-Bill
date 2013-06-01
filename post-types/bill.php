@@ -80,7 +80,10 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 		));
 	x_add_metadata_field( 'who', 'bill', array(
 		'group' => 'bill-wwwww',
-		'field_type' => 'textarea',
+		'field_type' => 'taxonomy_select',
+		'multiple' => true,
+		'select2' => true,
+		'taxonomy' => 'who',
 		'label' => 'Who?',
 	) );
 	x_add_metadata_field( 'what', 'bill', array(
@@ -90,7 +93,10 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 	) );
 	x_add_metadata_field( 'where', 'bill', array(
 		'group' => 'bill-wwwww',
-		'field_type' => 'textarea',
+		'field_type' => 'taxonomy_select',
+		'multiple' => true,
+		'select2' => true,
+		'taxonomy' => 'where',
 		'label' => 'Where?',
 	) );
 });
