@@ -14,6 +14,15 @@ add_filter( 'pre_option_permalink_structure', function(){
 	return '%postname%';
 });
 
+add_action( 'pre_get_posts', function( $query ) {
+
+	if ( ! $query->is_home() || ! $query->is_main_query() )
+		return;
+
+	$query->set( 'post_type', 'bill' );
+
+});
+
 add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_script( 'jquery' );
 });
