@@ -80,9 +80,7 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 		));
 	x_add_metadata_field( 'who', 'bill', array(
 		'group' => 'bill-wwwww',
-		'field_type' => 'taxonomy_select',
-		'multiple' => true,
-		'select2' => true,
+		'field_type' => 'taxonomy_checkbox',
 		'taxonomy' => 'who',
 		'label' => 'Who?',
 	) );
@@ -93,9 +91,7 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 	) );
 	x_add_metadata_field( 'where', 'bill', array(
 		'group' => 'bill-wwwww',
-		'field_type' => 'taxonomy_select',
-		'multiple' => true,
-		'select2' => true,
+		'field_type' => 'taxonomy_checkbox',
 		'taxonomy' => 'where',
 		'label' => 'Where?',
 	) );
