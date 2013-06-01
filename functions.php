@@ -42,8 +42,12 @@ add_action( 'wp_enqueue_scripts', function() {
 add_action( 'wp_head', function() {
 ?>
 <style>
+body {
+	background-color: #0052a5;
+}
 #page {
 	width: 600px;
+	border:3px solid #ffd600;
 }
 .site-content {
 	float:none;
@@ -65,8 +69,13 @@ add_action( 'wp_head', function() {
 #secondary, .entry-meta, .comments-link {
 	display: none;
 }
+p.help-us {
+	border: 1px solid #333;
+	background-color: #EFEFEF;
+	padding: 10px;
+}
 button.bill-reaction {
-	font-size: 1.3em;
+	font-size: 1.1em;
 	background-color: #EFEFEF;
 }
 </style>
@@ -84,6 +93,9 @@ add_action( 'admin_head', function() {
 <?php
 });
 
+function wtb_contribute_message() {
+	echo "<p class='help-us'>Help us out by doing some research!</p>";	
+}
 add_filter( 'the_content', function( $content ){
 
 	if ( ! is_home() )

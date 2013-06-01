@@ -29,14 +29,18 @@
 
 						<h3>What</h3>
 						<p><em>What is this bill really about?</em></p>
-						<?php echo wpautop( get_post_meta( get_the_ID(), 'what', true ) ); ?>
+						<?php if ( $what = get_post_meta( get_the_ID(), 'what', true ) ) : ?>
+						<?php echo wpautop( $what ); ?>
+						<?php else: ?>
+						<?php wtb_contribute_message(); ?>
+						<?php endif; ?>
 
 						<h3>Who</h3>
 						<p><em>What type of person will this most affect?</em></p>
 						<?php if ( $who = wp_get_object_terms( get_the_ID(), 'who', array( 'fields' => 'names' ) ) ) : ?>
 						<?php echo wpautop( implode( ', ', $who ) ); ?>
 						<?php else: ?>
-						<p>Help us out by doing some research!</p>
+						<?php wtb_contribute_message(); ?>
 						<?php endif; ?>
 
 						<h3>Where</h3>
@@ -44,7 +48,7 @@
 						<?php if ( $where = wp_get_object_terms( get_the_ID(), 'where', array( 'fields' => 'names' ) ) ) : ?>
 						<?php echo wpautop( implode( ', ', $where ) ); ?>
 						<?php else: ?>
-						<p>Help us out by doing some research!</p>
+						<?php wtb_contribute_message(); ?>
 						<?php endif; ?>
 
 						<h3>Your Reaction</h3>
