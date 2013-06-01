@@ -48,6 +48,7 @@ jQuery(document).ready(function($) {
 <?php
 });
 
+add_action( 'wp_ajax_nopriv_bill_reaction', 'wtb_bill_reaction_ajax' );
 add_action( 'wp_ajax_bill_reaction', 'wtb_bill_reaction_ajax' );
 function wtb_bill_reaction_ajax() {
 
