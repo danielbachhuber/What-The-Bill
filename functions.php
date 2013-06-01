@@ -13,6 +13,14 @@ require_once dirname( __FILE__ ) . '/taxonomies/who.php';
 require_once dirname( __FILE__ ) . '/taxonomies/where.php';
 require_once dirname( __FILE__ ) . '/taxonomies/reaction.php';
 
+add_filter( 'pre_option_blogname', function() {
+	return "What The Bill?!";
+});
+
+add_filter( 'pre_option_blogdescription', function() {
+	return "What's the Oregon Legislature deciding?";
+});
+
 add_filter( 'pre_option_permalink_structure', function(){
 	return '%postname%';
 });
