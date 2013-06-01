@@ -16,6 +16,7 @@
 							<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h1>
 						<?php endif; // is_single() ?>
+						<h2><?php echo get_post_meta( get_the_ID(), 'summary', true ); ?></h2>
 					</header><!-- .entry-header -->
 
 					<?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -25,15 +26,32 @@
 					<?php else : ?>
 					<div class="entry-content">
 						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
-						<?php echo wpautop( get_post_meta( get_the_ID(), 'summary', true ) ); ?>
+
+						<h3>What</h3>
+						<p><em>What is this bill really about?</em></p>
+						<?php echo wpautop( get_post_meta( get_the_ID(), 'what', true ) ); ?>
+
+						<h3>Who</h3>
+						<p><em>What type of person will this most affect?</em></p>
+						<?php if ( $who = wp_get_object_terms( get_the_ID(), 'who', array( 'fields' => 'names' ) ) ) : ?>
+						<?php echo wpautop( implode( ', ', $who ) ); ?>
+						<?php else: ?>
+						<p>Help us out by doing some research!</p>
+						<?php endif; ?>
+
+						<h3>Where</h3>
+						<p><em>Which part of Oregon will this bill impact most?</em></p>
+						<?php if ( $where = wp_get_object_terms( get_the_ID(), 'where', array( 'fields' => 'names' ) ) ) : ?>
+						<?php echo wpautop( implode( ', ', $where ) ); ?>
+						<?php else: ?>
+						<p>Help us out by doing some research!</p>
+						<?php endif; ?>
+
+						<?php get_template_part( 'reaction-buttons' ); ?>
 					</div><!-- .entry-content -->
 					<?php endif; ?>
 
 				</article><!-- #post -->
-
-				<footer>
-					<?php get_template_part( 'reaction-buttons' ); ?>
-				</footer>
 
 			<?php endwhile; // end of the loop. ?>
 
