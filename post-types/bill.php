@@ -69,7 +69,7 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 	) );
 	x_add_metadata_field( 'id', 'bill', array(
 		'group' => 'bill-basic',
-		'field_type' => 'number',
+		'field_type' => 'text',
 		'label' => 'Number',
 		'display_column' => true,
 		'readonly' => true
