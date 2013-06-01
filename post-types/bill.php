@@ -85,6 +85,7 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 		'taxonomy' => 'who',
 		'label' => 'Who?',
 		'description' => 'What type of person will this affect?',
+		'display_column' => true,
 	) );
 	x_add_metadata_field( 'what', 'bill', array(
 		'group' => 'bill-wwwww',
@@ -97,6 +98,7 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 		'field_type' => 'taxonomy_checkbox',
 		'taxonomy' => 'where',
 		'label' => 'Where?',
-		'description' => "Which part of Oregon will this bill impact most?"
+		'description' => "Which part of Oregon will this bill impact most?",
+		'display_column' => true,
 	) );
 });
