@@ -83,16 +83,19 @@ add_action( 'custom_metadata_manager_init_metadata', function() {
 		'field_type' => 'taxonomy_checkbox',
 		'taxonomy' => 'who',
 		'label' => 'Who?',
+		'description' => 'What type of person will this affect?',
 	) );
 	x_add_metadata_field( 'what', 'bill', array(
 		'group' => 'bill-wwwww',
 		'field_type' => 'textarea',
 		'label' => 'What?',
+		'description' => "What is this bill really about?",
 	) );
 	x_add_metadata_field( 'where', 'bill', array(
 		'group' => 'bill-wwwww',
 		'field_type' => 'taxonomy_checkbox',
 		'taxonomy' => 'where',
 		'label' => 'Where?',
+		'description' => "Which part of Oregon will this bill impact most?"
 	) );
 });
