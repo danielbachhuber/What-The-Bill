@@ -57,6 +57,10 @@ add_action( 'wp_head', function() {
 #secondary, .entry-meta, .comments-link {
 	display: none;
 }
+button.bill-reaction {
+	font-size: 1.3em;
+	background-color: #EFEFEF;
+}
 </style>
 <?php
 });
