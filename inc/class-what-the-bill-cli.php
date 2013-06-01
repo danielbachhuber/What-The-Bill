@@ -73,6 +73,7 @@ class What_The_Bill_CLI extends WP_CLI_Command {
 				'bill_number' => 'id',
 				'description' => 'summary',
 				'bill_id' => 'legiscan_id',
+				'history' => 'history',
 			);
 		foreach( $fields as $b_key => $pm_key ) {
 			update_post_meta( $post_id, $pm_key, $bill->$b_key, true );

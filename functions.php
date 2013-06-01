@@ -104,6 +104,11 @@ add_filter( 'the_content', function( $content ){
 	ob_start(); ?>
 	<h2 class="bill-summary"><?php echo get_post_meta( get_the_ID(), 'summary', true ); ?></h2>
 
+	<?php if ( $history = get_post_meta( get_the_ID(), 'history', true ) ) : ?>
+	<?php $last_action = array_pop( $history ); ?>
+	<p><em>Last action: <?php echo $last_action->action; ?> (<?php echo $last_action->date; ?>)</em></p>
+	<?php endif; ?>
+
 	<p><a href="<?php echo the_permalink(); ?>">Learn More</a></p>
 
 	<?php get_template_part( 'reaction-buttons' ); ?>
