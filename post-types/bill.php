@@ -6,7 +6,7 @@ function bill_init() {
 		'public'              => true,
 		'show_in_nav_menus'   => true,
 		'show_ui'             => true,
-		'supports'            => array( 'title', 'editor' ),
+		'supports'            => array( 'title' ),
 		'has_archive'         => true,
 		'query_var'           => true,
 		'rewrite'             => true,
@@ -55,3 +55,42 @@ function bill_updated_messages( $messages ) {
 	return $messages;
 }
 add_filter( 'post_updated_messages', 'bill_updated_messages' );
+
+
+add_action( 'custom_metadata_manager_init_metadata', function() {
+	x_add_metadata_group( 'bill-basic', 'bill', array(
+			'label' => 'Basic details'
+		));
+	x_add_metadata_field( 'summary', 'bill', array(
+		'group' => 'bill-basic',
+		'field_type' => 'textarea',
+		'label' => 'Summary',
+		'display_column' => true
+	) );
+	x_add_metadata_field( 'id', 'bill', array(
+		'group' => 'bill-basic',
+		'field_type' => 'number',
+		'label' => 'Number',
+		'display_column' => true,
+		'readonly' => true
+	) );
+
+	x_add_metadata_group( 'bill-wwwww', 'bill', array(
+			'label' => 'Who, what, when, where, why'
+		));
+	x_add_metadata_field( 'who', 'bill', array(
+		'group' => 'bill-wwwww',
+		'field_type' => 'textarea',
+		'label' => 'Who?',
+	) );
+	x_add_metadata_field( 'what', 'bill', array(
+		'group' => 'bill-wwwww',
+		'field_type' => 'textarea',
+		'label' => 'What?',
+	) );
+	x_add_metadata_field( 'where', 'bill', array(
+		'group' => 'bill-wwwww',
+		'field_type' => 'textarea',
+		'label' => 'Where?',
+	) );
+});
