@@ -18,6 +18,17 @@ add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_script( 'jquery' );
 });
 
+add_action( 'admin_head', function() {
+?>
+<style>
+	.custom-metadata-field textarea {
+		width: 90%;
+		min-height: 60px;
+	}
+</style>
+<?php
+});
+
 add_action( 'wp_head', function() {
 ?>
 <script>
