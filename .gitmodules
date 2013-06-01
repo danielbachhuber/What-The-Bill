@@ -1,0 +1,3 @@
+[submodule "plugins/custom-metadata"]
+	path = plugins/custom-metadata
+	url = git@github.com:Automattic/custom-metadata.git
