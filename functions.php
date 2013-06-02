@@ -154,6 +154,15 @@ function wtb_bill_reaction_ajax() {
 	$reactions++;
 	update_post_meta( $post_id, $reaction_key, $reactions );
 
+	$all_reactions = get_post_meta( $post_id );
+	$sum = 0;
+	foreach ($all_reactions as $key => $value) {
+		if (strpos($key, "reaction_") !== false) {
+			$sum += (int)$value[0];			
+		}
+	}
+	update_post_meta( $post_id, "sum_cache", $sum );
+
 	wtb_do_json_response( 'success', $reactions );
 	exit;
 }
