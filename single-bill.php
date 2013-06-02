@@ -30,7 +30,7 @@
 						<p><em>Last action: <?php echo $last_action->action; ?> (<?php echo $last_action->date; ?>)</em></p>
 						<?php endif; ?>
 
-						<h3>What</h3>
+						<h3>What?</h3>
 						<p class="description">In plain English, what is this bill really about?</p>
 						<?php if ( $what = get_post_meta( get_the_ID(), 'what', true ) ) : ?>
 						<?php echo wpautop( $what ); ?>
@@ -38,7 +38,7 @@
 						<?php wtb_contribute_message(); ?>
 						<?php endif; ?>
 
-						<h3>Who</h3>
+						<h3>Who?</h3>
 						<p class="description">What type of person will this most affect?</p>
 						<?php if ( $who = wp_get_object_terms( get_the_ID(), 'who', array( 'fields' => 'names' ) ) ) : ?>
 						<?php echo wpautop( implode( ', ', $who ) ); ?>
@@ -46,7 +46,7 @@
 						<?php wtb_contribute_message(); ?>
 						<?php endif; ?>
 
-						<h3>Where</h3>
+						<h3>Where?</h3>
 						<p class="description">Which part of Oregon will this bill impact most?</p>
 						<?php if ( $where = wp_get_object_terms( get_the_ID(), 'where', array( 'fields' => 'names' ) ) ) : ?>
 						<?php echo wpautop( implode( ', ', $where ) ); ?>
