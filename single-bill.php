@@ -31,7 +31,7 @@
 						<?php endif; ?>
 
 						<h3>What</h3>
-						<p class="description">What is this bill really about?</p>
+						<p class="description">In plain English, what is this bill really about?</p>
 						<?php if ( $what = get_post_meta( get_the_ID(), 'what', true ) ) : ?>
 						<?php echo wpautop( $what ); ?>
 						<?php else: ?>
