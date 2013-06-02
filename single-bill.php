@@ -30,6 +30,9 @@
 						<p><em>Last action: <?php echo $last_action->action; ?> (<?php echo $last_action->date; ?>)</em></p>
 						<?php endif; ?>
 
+						<h3>Your Reaction</h3>
+						<?php get_template_part( 'reaction-buttons' ); ?>
+
 						<h3>What?</h3>
 						<p class="description">In plain English, what is this bill really about?</p>
 						<?php if ( $what = get_post_meta( get_the_ID(), 'what', true ) ) : ?>
@@ -54,8 +57,6 @@
 						<?php wtb_contribute_message(); ?>
 						<?php endif; ?>
 
-						<h3>Your Reaction</h3>
-						<?php get_template_part( 'reaction-buttons' ); ?>
 					</div><!-- .entry-content -->
 					<?php endif; ?>
 
