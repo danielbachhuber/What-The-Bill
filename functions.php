@@ -36,6 +36,19 @@ add_action( 'pre_get_posts', function( $query ) {
 
 });
 
+add_action( 'init', function(){
+	global $wpdb;
+
+	if ( ! isset( $_GET['random'] ) )
+		return;
+
+	$ids = $wpdb->get_col( "SELECT ID FROM $wpdb->posts WHERE post_type='bill' and post_status='publish';" );
+	shuffle( $ids );
+	$pid = array_pop( $ids );
+	wp_safe_redirect( get_permalink( $pid ) );
+	exit;
+});
+
 add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_script( 'jquery' );
 });
