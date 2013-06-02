@@ -25,10 +25,13 @@
 					</div><!-- .entry-summary -->
 					<?php else : ?>
 					<div class="entry-content">
-						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
+						<?php if ( $history = get_post_meta( get_the_ID(), 'history', true ) ) : ?>
+						<?php $last_action = array_pop( $history ); ?>
+						<p><em>Last action: <?php echo $last_action->action; ?> (<?php echo $last_action->date; ?>)</em></p>
+						<?php endif; ?>
 
 						<h3>What</h3>
-						<p><em>What is this bill really about?</em></p>
+						<p class="description">What is this bill really about?</p>
 						<?php if ( $what = get_post_meta( get_the_ID(), 'what', true ) ) : ?>
 						<?php echo wpautop( $what ); ?>
 						<?php else: ?>
@@ -36,7 +39,7 @@
 						<?php endif; ?>
 
 						<h3>Who</h3>
-						<p><em>What type of person will this most affect?</em></p>
+						<p class="description">What type of person will this most affect?</p>
 						<?php if ( $who = wp_get_object_terms( get_the_ID(), 'who', array( 'fields' => 'names' ) ) ) : ?>
 						<?php echo wpautop( implode( ', ', $who ) ); ?>
 						<?php else: ?>
@@ -44,7 +47,7 @@
 						<?php endif; ?>
 
 						<h3>Where</h3>
-						<p><em>Which part of Oregon will this bill impact most?</em></p>
+						<p class="description">Which part of Oregon will this bill impact most?</p>
 						<?php if ( $where = wp_get_object_terms( get_the_ID(), 'where', array( 'fields' => 'names' ) ) ) : ?>
 						<?php echo wpautop( implode( ', ', $where ) ); ?>
 						<?php else: ?>

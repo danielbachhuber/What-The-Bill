@@ -58,7 +58,8 @@ body {
 }
 .single-bill h2.bill-summary {
 	margin-top: 10px;
-	line-height: 1.3em;
+	line-height: 1.5em;
+	font-size: 1.2em;
 }
 .single-bill .entry-content h3 {
 	margin-bottom: 5px;
@@ -68,6 +69,9 @@ body {
 }
 #secondary, .entry-meta, .comments-link {
 	display: none;
+}
+p.description {
+	color: #888;
 }
 p.help-us {
 	border: 1px solid #333;
