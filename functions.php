@@ -31,7 +31,8 @@ add_action( 'pre_get_posts', function( $query ) {
 		return;
 
 	$query->set( 'post_type', 'bill' );
-	$query->set( 'orderby', 'rand' );
+	$query->set( 'meta_key', 'sum_cache' );
+	$query->set( 'orderby', 'meta_value_num' );
 
 });
 

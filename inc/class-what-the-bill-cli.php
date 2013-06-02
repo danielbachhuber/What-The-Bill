@@ -78,6 +78,8 @@ class What_The_Bill_CLI extends WP_CLI_Command {
 		foreach( $fields as $b_key => $pm_key ) {
 			update_post_meta( $post_id, $pm_key, $bill->$b_key, true );
 		}
+		if ( ! get_post_meta( $post_id, 'sum_cache', true ) )
+			update_post_meta( $post_id, 'sum_cache', 0 );
 		return true;
 
 	}
